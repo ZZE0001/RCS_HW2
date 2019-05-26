@@ -1,0 +1,118 @@
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+/* DEFAULT GRID - for extra small devices */
+/* Extra small devices (portrait phones, less than 576px)
+No media query since this is the default in Bootstrap */
+#container {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 50px auto 1fr auto; */
+    /* grid-gap: 10px; */
+    grid-template-areas:
+      "header"
+      "main"
+      "footer";
+    font-size: 1.5em;
+    min-height: 300px;
+    width: 100%;
+    background: white;    
+}
+
+#container > div {
+    margin-bottom: 2em;
+}
+#main > div {
+    margin-bottom: 2em;
+}
+
+/* HEADER */
+#header {
+    grid-area: header;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: unset !important;
+}
+
+/* Brand */
+#brand {
+    width: 100%;
+    justify-content: center;
+}
+/* Global Nav */
+#global-nav {
+    width: auto;
+}
+/* Tools */
+#tools {
+    margin-left: auto;
+}
+
+/* MAIN */
+#main {
+    /* background: rgb(255, 255, 255); */
+    grid-area: main;
+    display: grid;
+    grid-template-areas:
+        "hero-feature"
+      "call-to-action"
+      "article-feature"
+      "ad-box"
+      "article-listing";
+}
+
+/* HERO */
+#hero-feature {
+    grid-area: hero-feature;
+    /* display: none; */
+}
+#call-to-action a {
+    display: block;
+    margin: 10px 0px 10px 0px;
+    height: 3em;
+    padding: 10px;
+}
+
+/* AD */
+#ad-box {
+    grid-area: ad-box;
+    /* center in the grid */
+    margin: auto;
+}
+/* BODY */
+#article-feature img {
+    max-width: 360px;
+    max-height: 360px;
+}
+#article-listing {
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+#article-listing .box img {
+    width: 100%;
+}
+
+/* SIDEBAR */
+#sidebar-feature {
+    grid-area: sidebar;
+    display: none;
+}
+/* FOOTER */
+#footer {
+    grid-area: footer;
+}
+
+/* MEDIUM GRID - for small devices */
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+
+}
+
+/* LARGE GRID - for large devices */
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+
+}
