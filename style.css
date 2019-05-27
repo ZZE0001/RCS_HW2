@@ -1,6 +1,9 @@
 *, *:before, *:after {
     box-sizing: border-box;
 }
+
+/* https://www.youtube.com/watch?v=Tmtfhud4cUE */
+
 /* DEFAULT GRID - for extra small devices */
 /* Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap */
@@ -27,11 +30,11 @@ No media query since this is the default in Bootstrap */
 }
 
 /* HEADER */
-#header {
+#header > nav {
     grid-area: header;
     display: flex;
     flex-wrap: wrap;
-    margin-bottom: unset !important;
+    
 }
 
 /* Brand */
@@ -54,17 +57,18 @@ No media query since this is the default in Bootstrap */
     grid-area: main;
     display: grid;
     grid-template-areas:
-        "hero-feature"
+    /* "hero-feature" */
       "call-to-action"
       "article-feature"
       "ad-box"
-      "article-listing";
+      "article-listing"
+      /* "sidebar" */;
 }
 
 /* HERO */
 #hero-feature {
     grid-area: hero-feature;
-    /* display: none; */
+    display: none;
 }
 #call-to-action a {
     display: block;
@@ -106,6 +110,12 @@ No media query since this is the default in Bootstrap */
 /* MEDIUM GRID - for small devices */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
+
+/* HEADER */
+#header {
+    /* make space after nav bar */
+    margin-bottom: unset !important;
+}
 
 
 }
