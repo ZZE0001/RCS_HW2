@@ -3,6 +3,7 @@
 }
 
 /* https://www.youtube.com/watch?v=Tmtfhud4cUE */
+/* https://www.youtube.com/watch?v=a4fv-BtzNmY */
 
 /* DEFAULT GRID - for extra small devices */
 /* Extra small devices (portrait phones, less than 576px)
@@ -10,14 +11,13 @@ No media query since this is the default in Bootstrap */
 #container {
     display: grid;
     grid-template-columns: 1fr;
-    /* grid-template-rows: 50px auto 1fr auto; */
-    /* grid-gap: 10px; */
+    grid-row-gap: 20px;
     grid-template-areas:
       "header"
       "main"
       "footer";
-    font-size: 1.5em;
-    min-height: 300px;
+    /* font-size: 1.0em; */
+    /* min-height: 300px; */
     width: 100%;
     background: white;    
 }
@@ -25,16 +25,15 @@ No media query since this is the default in Bootstrap */
 #container > div {
     margin-bottom: 2em;
 }
-#main > div {
+/* #main > div {
     margin-bottom: 2em;
-}
+} */
 
 /* HEADER */
 #header > nav {
     grid-area: header;
     display: flex;
     flex-wrap: wrap;
-    
 }
 
 /* Brand */
@@ -56,6 +55,7 @@ No media query since this is the default in Bootstrap */
     /* background: rgb(255, 255, 255); */
     grid-area: main;
     display: grid;
+    grid-row-gap: 20px;
     grid-template-areas:
     /* "hero-feature" */
       "call-to-action"
@@ -70,9 +70,12 @@ No media query since this is the default in Bootstrap */
     grid-area: hero-feature;
     display: none;
 }
+#call-to-action  {
+    grid-area: call-to-action;
+}
 #call-to-action a {
     display: block;
-    margin: 10px 0px 10px 0px;
+    margin: 10px;
     height: 3em;
     padding: 10px;
 }
@@ -82,16 +85,21 @@ No media query since this is the default in Bootstrap */
     grid-area: ad-box;
     /* center in the grid */
     margin: auto;
+    
 }
 /* BODY */
+#article-feature {
+    grid-area: article-feature;
+    margin: 0 10px;
+}
 #article-feature img {
     max-width: 360px;
     max-height: 360px;
 }
 #article-listing {
+    grid-area: article-listing;
     margin-left: 10px;
     margin-right: 10px;
-    
 }
 #article-listing .box img {
     width: 100%;
@@ -101,22 +109,76 @@ No media query since this is the default in Bootstrap */
 #sidebar-feature {
     grid-area: sidebar;
     display: none;
+    margin: 0 10px;
+}
 }
 /* FOOTER */
 #footer {
     grid-area: footer;
 }
 
+/* OVERWRITE BULMA */
+.title.is-2 {
+    font-size: 2.0rem;
+}
+
+.media {
+    align-items: flex-start;
+    /* display: flex; */
+    /* for small devices */
+    display: unset;
+    /* for med, large devices */
+    text-align: left;
+}
+
+.media-left {
+    margin-right: 0rem;
+}
+
 /* MEDIUM GRID - for small devices */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
 
-/* HEADER */
 #header {
-    /* make space after nav bar */
+    /* make space after header */
     margin-bottom: unset !important;
 }
 
+#hero-feature {
+    /* make Hero feature visible */
+    display: unset;
+}
+#sidebar-feature {
+    display: unset;
+}
+#main {
+    /* grid-template-columns: 75% 25%; */
+    grid-template-columns: 1fr auto;
+    grid-template-areas:
+        "hero-feature hero-feature"
+        "call-to-action call-to-action"
+        "article-feature ad-box"     
+        "article-listing article-listing"
+        "sidebar sidebar";
+}
+
+/* OVERWRITE BULMA */
+.media {
+    align-self: auto;ign-items: flex-start;
+    /* for small devices change featured article image */
+    /* display: flex; */
+    /* for med, large devices change  featured article image */
+    display: unset;
+    text-align: left;
+}
+    /* Article listing in three columns */
+.tile:not(.is-child) {
+    display: flex;
+}
+
+#article-feature {
+
+}
 
 }
 
