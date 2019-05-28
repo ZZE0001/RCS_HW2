@@ -28,11 +28,11 @@
                     <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
                   </a>
               
-                  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+                  <!-- <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="global-nav">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
-                  </a>
+                  </a> -->
                 </div>
               
                 <div id="global-nav" class="navbar-menu">
@@ -71,15 +71,22 @@
                   <div id="tools" class="navbar-end">
                     <div class="navbar-item">
                       <div class="buttons">
-                        <a class="button is-primary">
+                        <a class="button is-light">
                           <strong>Sign up</strong>
                         </a>
-                        <a class="button is-light">
+                        <a class="button">
                           Log in
                         </a>
                       </div>
                     </div>
                   </div>
+
+                  <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="global-nav">
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                    <span aria-hidden="true"></span>
+                  </a>
+
                 </div>
               </nav>
           </div>
@@ -90,7 +97,7 @@
 
             <!-- start Hero -->
             <div id="hero-feature">
-              <section class="hero is-primary">
+              <section class="hero is-light">
                 <div class="hero-body">
                   <div class="container">
                     <h1 class="title">
@@ -106,19 +113,15 @@
 
             <!-- <div id="call-to-action">Call to action</div> -->
             <div id="call-to-action">
-              <a class="button is-link">Call to action button</a>
+              <a class="button is-primary">Call to action button</a>
             </div>
             <!-- end Hero -->
 
             <!-- start Ad -->
-            <div id="ad-box"> 
-              <!-- AD for mobile 720x240 -->
-              <!-- <figure class="image is-720x240">
-                <img src="https://bulma.io/images/placeholders/720x240.png">
-              </figure> -->
-              <!-- AD for others -->
+            <div id="ad-box">
               <figure class="image">Ad box
                 <img src="https://bulma.io/images/placeholders/320x480.png">
+                <!-- <img src="https://bulma.io/images/placeholders/480x480.png"> -->
               </figure>
               
             </div>
@@ -203,24 +206,23 @@
             <!-- end Body -->
 
             <!-- start Sidebar -->
-                <div id="sidebar-feature">Sidebar feature
-
-                  <div class="box">
-                    <article class="media">
-                      <div class="media-left">
-                        <figure class="image is-1by1">
-                          <img src="https://bulma.io/images/placeholders/480x480.png" alt="Image">
-                        </figure>
-                      </div>
-                      <div class="media-content">
+                <div id="sidebar-feature">
+                  
+                  <div class="tile is-ancestor">
+                    <div class="tile is-parent">
+                      <article class="tile is-child notification is-light">
                         <div class="content">
-                          <h2 class="title is-2">Sidebar</h2>
-                          <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
-                          </p>
+                          <p class="title">Sidebar</p>
+                          <p class="subtitle">With even more content</p>
+                          <div class="content">
+                            <!-- Content -->
+                            <p>
+                              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean efficitur sit amet massa fringilla egestas. Nullam condimentum luctus turpis.
+                            </p>
+                          </div>
                         </div>
-                      </div>
-                    </article>
+                      </article>
+                    </div>
                   </div>
 
 

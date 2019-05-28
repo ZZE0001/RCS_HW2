@@ -2,22 +2,18 @@
     box-sizing: border-box;
 }
 
-/* https://www.youtube.com/watch?v=Tmtfhud4cUE */
-/* https://www.youtube.com/watch?v=a4fv-BtzNmY */
-
 /* DEFAULT GRID - for extra small devices */
 /* Extra small devices (portrait phones, less than 576px)
 No media query since this is the default in Bootstrap */
+
 #container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-row-gap: 20px;
+    grid-row-gap: 10px;
     grid-template-areas:
       "header"
       "main"
       "footer";
-    /* font-size: 1.0em; */
-    /* min-height: 300px; */
     width: 100%;
     background: white;    
 }
@@ -25,9 +21,6 @@ No media query since this is the default in Bootstrap */
 #container > div {
     margin-bottom: 2em;
 }
-/* #main > div {
-    margin-bottom: 2em;
-} */
 
 /* HEADER */
 #header > nav {
@@ -47,7 +40,51 @@ No media query since this is the default in Bootstrap */
 }
 /* Tools */
 #tools {
+    display:none;
     margin-left: auto;
+}
+
+/* Disable BULMA mobile nav burger.
+Reverse engineer regular nav bar on mobile device. */
+.navbar-menu {
+    flex-grow: 1;
+    flex-shrink: 0;
+    box-shadow: unset;
+}
+.navbar, .navbar-end, .navbar-menu, .navbar-start {
+    align-items: stretch;
+    display: flex;
+}
+.navbar-start {
+    justify-content: flex-start;
+    margin-right: auto;
+}
+.navbar-item.has-dropdown {
+    align-items: stretch;
+}
+.navbar-item.has-dropdown {
+    padding: 0;
+}
+.navbar-item {
+    display: flex;
+}
+.navbar-item, .navbar-link {
+    align-items: center;
+    display: flex;
+}
+.navbar-dropdown {
+    background-color: #fff;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top: 2px solid #dbdbdb;
+    box-shadow: 0 8px 8px rgba(10,10,10,.1);
+    display: none;
+    font-size: .875rem;
+    left: 0;
+    min-width: 100%;
+    position: absolute;
+    top: 100%;
+    z-index: 20;
 }
 
 /* MAIN */
@@ -76,7 +113,7 @@ No media query since this is the default in Bootstrap */
 #call-to-action a {
     display: block;
     margin: 10px;
-    height: 3em;
+    height: max-content;
     padding: 10px;
 }
 
@@ -139,41 +176,51 @@ No media query since this is the default in Bootstrap */
 /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 576px) { 
 
-#header {
-    /* make space after header */
-    margin-bottom: unset !important;
-}
+    #header {
+        /* make space after header */
+        margin-bottom: unset !important;
+    }
+    #brand {
+        /* Move logo in the same line */
+        width: unset;
+    }
+    #tools {
+        display: unset;
+    }
+    .burger {
+        display: none;
+    }
 
-#hero-feature {
-    /* make Hero feature visible */
-    display: unset;
-}
-#sidebar-feature {
-    /* make Sidebar visible */
-    display: unset;
-}
-#main {
-    grid-template-columns: 1fr auto;
-    grid-template-areas:
-        "hero-feature hero-feature"
-        "call-to-action call-to-action"
-        "article-feature ad-box"     
-        "article-listing article-listing"
-        "sidebar sidebar";
-}
+    #hero-feature {
+        /* make Hero feature visible */
+        display: unset;
+    }
+    #sidebar-feature {
+        /* make Sidebar visible */
+        display: unset;
+    }
+    #main {
+        grid-template-columns: 1fr auto;
+        grid-template-areas:
+            "hero-feature hero-feature"
+            "call-to-action call-to-action"
+            "article-feature ad-box"     
+            "article-listing article-listing"
+            "sidebar sidebar";
+    }
 
-/* OVERWRITE BULMA */
-    /* Featured article img on top of title */
-.media {
-    align-self: auto;
-    align-items: flex-start;
-    display: unset;
-    text-align: left;
-}
-    /* Article listing in three columns */
-.tile:not(.is-child) {
-    display: flex;
-}
+    /* OVERWRITE BULMA */
+        /* Featured article img on top of title */
+    .media {
+        align-self: auto;
+        align-items: flex-start;
+        display: unset;
+        text-align: left;
+    }
+        /* Article listing in three columns */
+    .tile:not(.is-child) {
+        display: flex;
+    }
 
 
 }
@@ -182,39 +229,36 @@ No media query since this is the default in Bootstrap */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
-#main {
-    /* grid-template-columns: 75% 25%; */
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    /* grid-template-rows: minmax(50px, 500px); */
-    grid-template-areas:
-        "hero-feature hero-feature call-to-action ad-box"
-        "article-feature article-listing article-listing sidebar";
-    /* align-items: center; */
-}
+    #main {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-areas:
+            "hero-feature hero-feature call-to-action ad-box"
+            "article-feature article-listing article-listing sidebar";
+    }
 
-#hero-feature {
-    align-self: center;
-    
-}
-#call-to-action {
-    align-self: center;
-}
-#ad-box {
-    align-self: center;
-    justify-self: center;
-}
-/* resizes ad img for large screen */
-#ad-box img {
-    height: 150px;
-    width: auto;
-}
-/* OVERWRITE BULMA */
-    /* Featured article img on top of title */
-.media {
-    align-self: auto;
-    align-items: flex-start;
-    display: unset;
-    text-align: left;
-}
+    #hero-feature {
+        align-self: center;
+        
+    }
+    #call-to-action {
+        align-self: center;
+    }
+    #ad-box {
+        align-self: center;
+        justify-self: center;
+    }
+    /* resizes ad img for large screen */
+    #ad-box img {
+        height: 150px;
+        width: auto;
+    }
+    /* OVERWRITE BULMA */
+        /* Featured article img on top of title */
+    .media {
+        align-self: auto;
+        align-items: flex-start;
+        display: unset;
+        text-align: left;
+    }
 
 }
