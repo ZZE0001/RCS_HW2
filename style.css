@@ -84,7 +84,7 @@ No media query since this is the default in Bootstrap */
 #ad-box {
     grid-area: ad-box;
     /* center in the grid */
-    margin: auto;
+    margin: auto 10px;
     
 }
 /* BODY */
@@ -111,7 +111,7 @@ No media query since this is the default in Bootstrap */
     display: none;
     margin: 0 10px;
 }
-}
+
 /* FOOTER */
 #footer {
     grid-area: footer;
@@ -149,10 +149,10 @@ No media query since this is the default in Bootstrap */
     display: unset;
 }
 #sidebar-feature {
+    /* make Sidebar visible */
     display: unset;
 }
 #main {
-    /* grid-template-columns: 75% 25%; */
     grid-template-columns: 1fr auto;
     grid-template-areas:
         "hero-feature hero-feature"
@@ -163,11 +163,10 @@ No media query since this is the default in Bootstrap */
 }
 
 /* OVERWRITE BULMA */
+    /* Featured article img on top of title */
 .media {
-    align-self: auto;ign-items: flex-start;
-    /* for small devices change featured article image */
-    /* display: flex; */
-    /* for med, large devices change  featured article image */
+    align-self: auto;
+    align-items: flex-start;
     display: unset;
     text-align: left;
 }
@@ -176,9 +175,6 @@ No media query since this is the default in Bootstrap */
     display: flex;
 }
 
-#article-feature {
-
-}
 
 }
 
@@ -186,5 +182,39 @@ No media query since this is the default in Bootstrap */
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
 
+#main {
+    /* grid-template-columns: 75% 25%; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    /* grid-template-rows: minmax(50px, 500px); */
+    grid-template-areas:
+        "hero-feature hero-feature call-to-action ad-box"
+        "article-feature article-listing article-listing sidebar";
+    /* align-items: center; */
+}
+
+#hero-feature {
+    align-self: center;
+    
+}
+#call-to-action {
+    align-self: center;
+}
+#ad-box {
+    align-self: center;
+    justify-self: center;
+}
+/* resizes ad img for large screen */
+#ad-box img {
+    height: 150px;
+    width: auto;
+}
+/* OVERWRITE BULMA */
+    /* Featured article img on top of title */
+.media {
+    align-self: auto;
+    align-items: flex-start;
+    display: unset;
+    text-align: left;
+}
 
 }
